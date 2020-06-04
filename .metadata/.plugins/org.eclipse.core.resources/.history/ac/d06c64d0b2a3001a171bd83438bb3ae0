@@ -1,0 +1,61 @@
+package playGame;
+import java.util.ArrayList;
+import Cards.Card;
+
+
+public class Player {
+	int playerNumber;
+	ArrayList<Card> playerHand;
+	int highCard;
+	int speciality;
+	double balance;
+	boolean allIn;
+	boolean folded;
+	
+	
+	Player(int i){
+		this.playerNumber = i;
+	}
+	
+	public void addHand(ArrayList<Card> incomingCards) {
+		this.playerHand = incomingCards;
+	}
+	
+	public String checkBet(double bidIntoPot) { 
+		//Start with a basis Check to see if player is already All in
+		
+		if(this.allIn == true) {
+			return "ALL IN";	
+		}
+
+		else if(this.balance - bidIntoPot > 0) {
+			this.balance = this.balance - bidIntoPot;
+			return "Okay";
+		}
+		
+		else if(this.balance - bidIntoPot ==0 ){
+			System.out.println("ALL IN");
+			this.balance = this.balance - bidIntoPot;
+			this.allIn = true;
+			return "ALL IN";
+		}
+		
+		else {
+			return "Retry";
+		}
+		
+	}
+	
+	public String bet(double bidIntoPot) {
+		String resp = this.checkBet(bidIntoPot);
+		return resp;
+	}
+	
+	public int evalHighCard() {
+		for(int i ; i < length(this.playerHand); i ++)
+		
+	}
+	
+	
+	
+}

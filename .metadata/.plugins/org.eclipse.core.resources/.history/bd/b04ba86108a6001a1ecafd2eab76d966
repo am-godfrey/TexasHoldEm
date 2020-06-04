@@ -1,0 +1,40 @@
+package Cards;
+
+public class Card{
+	String suitOfCard;
+	public int number;
+	String reprNumber;
+	int trueNumber;
+	
+	
+	public Card(String suit, int numberOfCard){
+		this.suitOfCard = suit;
+		this.number = numberOfCard;
+	}
+
+	
+	public String toString() {
+		if (this.number == 0) {
+			reprNumber = "Ace";
+		}
+		else if(this.number == 11) {  //  Check for a Face card or a number Card
+			reprNumber = "Jack";      // represent it either way.
+		}
+		else if (this.number == 12) {
+			reprNumber = "Queen";
+		}
+		else if (this.number == 13) {
+			reprNumber = "King";
+		}
+		else {
+			int trueNumber = this.number;  // Stays that number
+			String repr = trueNumber + " of " + this.suitOfCard;
+			return repr; 
+		}
+		String repr = reprNumber + " of " + this.suitOfCard;
+		return repr;
+		
+	}
+	
+
+}

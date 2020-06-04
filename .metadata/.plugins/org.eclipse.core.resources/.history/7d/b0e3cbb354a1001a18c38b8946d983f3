@@ -1,0 +1,66 @@
+package Cards;
+import java.util.*;
+
+public class Deck {
+	public ArrayList<Card> fullDeck;
+	
+	public Deck() {
+		/*ArrayList<String> suits =  new ArrayList<String>() ;
+		suits.add("Hearts");
+		ArrayList<Integer> cardNumbers =  new ArrayList<Integer>() ;
+		cardNumbers.add(1);
+		for (Integer number : cardNumbers) {
+			for (String suit: suits) {
+				;
+				//this.fullDeck.add(currCard);
+			}
+		} */
+		Deck currCard = new Card("Heart", 9);
+	}
+	
+	public static void main(String args[]) {
+		Deck currDeck = new Deck();
+		
+	}
+
+}
+
+public class Card extends Deck{
+	String suitOfCard;
+	int number;
+	String reprNumber;
+	
+	
+	public Card(String suit, int numberOfCard){
+		System.out.println("Made Card");
+		this.suitOfCard = suit;
+		this.number = numberOfCard;
+	}
+
+	
+	
+	public String toString() {
+		if (this.number == 0) {
+			reprNumber = "Ace";
+		}
+		else if(this.number == 11) {  //  Check for a Face card or a number Card
+			reprNumber = "Jack";      // represent it either way.
+		}
+		else if (this.number == 12) {
+			reprNumber = "Queen";
+		}
+		else if (this.number == 13) {
+			reprNumber = "King";
+		}
+		else {
+			int trueNumber = this.number;
+			String repr = trueNumber + " of " + this.suitOfCard;
+			return repr; 
+		}
+		String repr = reprNumber + " of " + this.suitOfCard;
+		return repr;
+		
+	}
+	
+
+}

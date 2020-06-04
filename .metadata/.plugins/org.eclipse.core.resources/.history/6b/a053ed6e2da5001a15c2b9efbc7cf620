@@ -1,0 +1,44 @@
+package playGame;
+import java.util.ArrayList;
+import Cards.Card;
+
+import Cards.Deck;
+
+public class Play {
+	ArrayList<Player> allPlayers;
+	
+	public void dealCards() {
+		for(Player playerAtTable: playersList) {
+			ArrayList<Card> cardsToAdd = new ArrayList<Card>(); // Deal Two Cards to each Player
+		
+			for(int addCard = 0; addCard < 2 ;  addCard++) {
+				cardsToAdd.add(playingDeck.fullDeck.get(0));
+				playingDeck.fullDeck.remove(0);
+			}
+			
+			playerAtTable.addHand(cardsToAdd);
+			System.out.println(playerAtTable.playerHand);
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		Deck playingDeck = new Deck();
+		playingDeck.shuffleCards();    // Shuffle the Deck
+		
+		ArrayList<Player> playersList = new ArrayList<Player>();
+		for(int i = 0 ; i <2; i ++) {
+			Player player = new Player(i); // Make the Initial Players
+			playersList.add(player);
+		}
+	
+	
+	
+		
+			
+			
+	}
+		
+
+}
+

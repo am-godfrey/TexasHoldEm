@@ -1,0 +1,17 @@
+package Cards;
+import java.util.ArrayList;
+
+public class Card {
+	String suitOfCard;
+	int number;
+	
+	Card(String suit, int numberOfCard){
+		this.suitOfCard = suit;
+		this.number = numberOfCard;
+	}
+
+	public static void main(String[] args) {
+		
+	}
+	
+}

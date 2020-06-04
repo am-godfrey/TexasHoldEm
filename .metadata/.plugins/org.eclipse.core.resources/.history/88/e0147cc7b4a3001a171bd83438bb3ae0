@@ -1,0 +1,19 @@
+package playGame;
+import Cards.Deck;
+
+public class Play {
+
+	public static void main(String[] args) {
+		Deck playingDeck = new Deck();
+		playingDeck.shuffleCards();
+		
+		for(int i = 0 ; i <2; i ++) {
+			Player player = new Player(i);
+			System.out.println(player.bet(300));
+			
+		}
+		
+
+	}
+
+}

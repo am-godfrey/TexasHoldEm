@@ -1,0 +1,50 @@
+package playGame;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import Cards.Card;
+
+public class Hand {
+	ArrayList<Card> handCards;
+	
+	public Hand(ArrayList<Card> cardsForHand){
+		this.handCards = cardsForHand;
+		
+	}
+	
+	
+	public HashMap<String, Integer> evaluateHand(ArrayList<Card> potCards) {
+		HashMap<String, Integer> ratingSystem = new HashMap<String, Integer>(); // Rating System
+		
+		ArrayList<Card> combinedCard = new ArrayList<Card>();
+		combinedCard.addAll(potCards);
+		combinedCard.addAll(handCards);   // Combine all hands
+		
+		int highValue = evalHighCard(combinedCard);
+		ratingSystem.put("HighCard", highValue); // CHeck both pot and personal cards
+		
+		int highValuePersonal = evalHighCard(handCards);
+		ratingSystem.put("PersonalHighCard", highValuePersonal); // Check his personal Hand
+		
+		
+		return ratingSystem;
+		
+	} 
+	
+	public int evalHighCard(ArrayList<Card> cards) {
+		int highCard = 0;
+		for (Card currCard: cards) {
+			int currNumber = currCard.number;
+			if (currNumber == 0) {  // If the card is an Ace treat it as high.
+				highCard = 14;
+			}
+			else if(currNumber > highCard) {
+				highCard = currNumber;
+			}
+			
+		}
+
+		return highCard;
+		
+	}
+}

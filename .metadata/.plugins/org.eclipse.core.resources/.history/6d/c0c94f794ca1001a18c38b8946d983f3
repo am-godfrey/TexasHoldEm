@@ -1,0 +1,35 @@
+package Cards;
+import java.util.ArrayList;
+
+public class Card {
+	String suitOfCard;
+	int number;
+	String reprNumber;
+	
+	
+	public Card(String suit, int numberOfCard){
+		this.suitOfCard = suit;
+		this.number = numberOfCard;
+	}
+
+	
+	
+	public String toString() {
+		if (this.number == 0) {
+			reprNumber = "Ace";
+		}
+		else if(this.number == 11) {
+			reprNumber = "Jack";
+		}
+		else if (this.number == 12) {
+			reprNumber = "Queen";
+		}
+		else if (this.number == 13) {
+			reprNumber = "King";
+		}
+		String repr = this.number + " of " + reprNumber;
+		return repr;
+	
+	}
+	
+}

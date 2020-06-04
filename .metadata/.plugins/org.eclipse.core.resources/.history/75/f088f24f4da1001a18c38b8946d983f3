@@ -1,0 +1,26 @@
+package Cards;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Deck {
+	public ArrayList<Integer> cardNumbers;
+	public ArrayList<String> suitOfCard;
+	public ArrayList<Card> fullDeck;
+	
+	public Deck() {
+		this.suitOfCard = new ArrayList<String> ( Arrays.asList("Heart", "Diamond", "Club", "Jack") );
+		this.cardNumbers = new ArrayList<Integer> (Arrays.asList(0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13));
+		for(Integer cardNumber : cardNumbers) {
+			for(String suit: suitOfCard) {
+				//Card currCard = new Card(suit, cardNumber);
+				//fullDeck.add(currCard);
+			}
+		}
+	}
+	
+	public static void main(String args[]) {
+		Deck currDeck = new Deck();
+		
+	}
+
+}

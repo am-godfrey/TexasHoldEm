@@ -1,0 +1,98 @@
+package playGame;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import Cards.Card;
+
+public class Hand {
+	ArrayList<Card> handCards;
+	
+	public Hand(ArrayList<Card> cardsForHand){
+		this.handCards = cardsForHand;
+		
+	}
+	
+	
+	public HashMap<String, Integer> evaluateHand(ArrayList<Card> potCards) {
+		HashMap<String, Integer> ratingSystem = new HashMap<String, Integer>(); // Rating System
+		
+		ArrayList<Card> combinedCard = new ArrayList<Card>();
+		combinedCard.addAll(potCards);
+		combinedCard.addAll(handCards);   // Combine all hands
+		
+		int highValue = evalHighCard(combinedCard);
+		ratingSystem.put("HighCard", highValue); // CHeck both pot and personal cards
+		
+		int highValuePersonal = evalHighCard(handCards);
+		ratingSystem.put("PersonalHighCard", highValuePersonal); // Check his personal Hand
+		
+		HashMap<Integer, String> specialValue = evalSpecial(combinedCard);
+		
+		
+		return ratingSystem;
+		
+	} 
+	
+	public int evalHighCard(ArrayList<Card> cards) {
+		int highCard = 0;
+		for (Card currCard: cards) {
+			int currNumber = currCard.number;
+			if (currNumber == 0) {  // If the card is an Ace treat it as high.
+				highCard = 14;
+			}
+			else if(currNumber > highCard) {
+				highCard = currNumber;
+			}
+		}
+
+		return highCard;
+	}
+	
+	public HashMap<Integer, String> evalSpecial(ArrayList<Card> combinedCard) {
+		/* To evaluate the Speciality I addressed each special hand such as a straight with a number
+		 * The better hands had a larger speciality number.
+		 * 
+		 * NoSpecial = 0 , OnePair = 1, TwoPair = 2, ThreeOfAKind = 3,
+		 * Straight = 4,   Flush = 5,  FullHouse = 6, FourOfAKind = 7,
+		 * StraightFlush = 8, RoyalFlush = 9.
+		 * 
+		 * Returns the best possible combination
+		 */ 
+		
+		HashMap<Integer, String> bestCombinations = new HashMap<Integer, String>();
+		
+		// Check for pairs
+		
+		HashMap<Integer, Integer> pairs = new HashMap<Integer, Integer>();
+		for(Card card: combinedCard) {
+			Integer pairsCurrValue = pairs.get(card.number);
+			if(pairsCurrValue == null) {   // Find the pairs
+				pairsCurrValue = 0;
+			}
+			pairs.put(card.number, pairsCurrValue + 1);
+		}
+		
+		if(pairs.containsValue(4)) { // 4 of a kind, if four of a kind, a best combo of pairs not possible
+			
+		}
+		else if (pairs.containsValue(3)) {     
+			for()
+			
+		}
+		else if (pairs.conatinsValue(2)) {
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		return ;
+		
+	}
+		
+	
+
+}

@@ -1,0 +1,12 @@
+package playGame;
+import java.util.ArrayList;
+import Cards.Card;
+
+public class EvaluateHand {
+	ArrayList<Integer> handValues;
+	
+	public EvaluateHand(ArrayList<Card> cardsInHand, ArrayList<Card> cardsInPot){
+		cardsInHand.addAll(cardsInPot);
+		System.out.println(cardsInHand);
+	}
+}

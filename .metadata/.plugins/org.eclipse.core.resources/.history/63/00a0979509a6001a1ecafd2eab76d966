@@ -1,0 +1,16 @@
+package playGame;
+import Cards.Card;
+import java.util.ArrayList;
+
+public class Board {
+	ArrayList<Card> allCards;
+	public ArrayList<Card> hiddenCards;
+	public ArrayList<Card> floppedCards;
+	
+	Board(ArrayList<Card> incomingCards){ // When First made 3 cards are flopped and 2 cards are hidden
+		this.allCards = incomingCards;
+		this.floppedCards = incomingCards.get(0).combine(incomingCards.get(1));
+	}
+	
+
+}
