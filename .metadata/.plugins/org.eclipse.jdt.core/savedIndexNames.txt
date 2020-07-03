@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+C:\Users\am_go\Documents\JavaProjects\TexasHoldEm\.metadata\.plugins\org.eclipse.jdt.core
-1342004817.index
-1671692264.index
