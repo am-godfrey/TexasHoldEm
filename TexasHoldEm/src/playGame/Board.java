@@ -2,12 +2,17 @@ package playGame;
 import Cards.Card;
 import java.util.ArrayList;
 
+/**
+ * Board class to easily flop cards and show the specific cards
+ * @author am_go
+ *
+ */
 public class Board {
-	ArrayList<Card> allCards;
-	public ArrayList<Card> hiddenCards;
-	public ArrayList<Card> floppedCards;
+	protected ArrayList<Card> allCards;
+	protected ArrayList<Card> hiddenCards;
+	protected ArrayList<Card> floppedCards;
 	
-	Board(ArrayList<Card> incomingCards){ // When First made 3 cards are flopped and 2 cards are hidden
+	public Board(ArrayList<Card> incomingCards){ // When First made 3 cards are flopped and 2 cards are hidden
 		this.allCards = incomingCards;
 		this.floppedCards = incomingCards.get(0).combine(incomingCards.get(1), incomingCards.get(2)); // 3 Cards
 		this.hiddenCards = incomingCards.get(3).combine(incomingCards.get(4)); // 2 Cards
@@ -19,5 +24,12 @@ public class Board {
 		floppedCards.add(cardToFlop);
 	}
 	
+	public ArrayList<Card> getFloppedCards(){
+		return this.floppedCards;
+	}
+	
+	public ArrayList<Card> getAllCards(){
+		return this.allCards;
+	}
 
 }
